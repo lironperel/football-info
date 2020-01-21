@@ -49,6 +49,7 @@ router.get('/', auth, async (req, res) => {
 
       const leagueData = await fetchFromApi(url, options);
 
+      if (leagueData.message) throw new Error(leagueData.message);
       result[league] = leagueData.standings
         .find(standing => standing.type === 'TOTAL')
         .table.map(standing => {
@@ -71,7 +72,7 @@ router.get('/', auth, async (req, res) => {
     res.json(result);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send('Server Error: ' + err.message);
   }
 });
 
