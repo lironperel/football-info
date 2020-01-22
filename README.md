@@ -1,9 +1,6 @@
 # Football-Info
 > Full Stack application developed with MERN Stack
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-
 React.js | Node.js | MongoDB | Express.js
 
 ![](logo.png)
