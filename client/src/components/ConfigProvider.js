@@ -20,11 +20,14 @@ class ConfigProvider extends Component {
 
   loginUser = async (email, pass) => {
     try {
-      const response = await fetch('/api/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, password: pass })
-      });
+      const response = await fetch(
+        'https://cors-anywhere.herokuapp.com/https://football-leagues-info.herokuapp.com/api/auth',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, password: pass })
+        }
+      );
 
       const resJson = await response.json();
 
@@ -49,11 +52,14 @@ class ConfigProvider extends Component {
 
   registerUser = async (email, pass, fullname) => {
     try {
-      const response = await fetch('/api/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: fullname, email: email, password: pass })
-      });
+      const response = await fetch(
+        'https://cors-anywhere.herokuapp.com/https://football-leagues-info.herokuapp.com/api/users',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: fullname, email: email, password: pass })
+        }
+      );
 
       const resJson = await response.json();
 
@@ -75,10 +81,13 @@ class ConfigProvider extends Component {
       return this.state.leagues;
     } else {
       try {
-        const res = await fetch('/api/leagues', {
-          method: 'GET',
-          headers: { 'x-auth-token': this.state.loginToken }
-        });
+        const res = await fetch(
+          'https://cors-anywhere.herokuapp.com/https://football-leagues-info.herokuapp.com/api/leagues',
+          {
+            method: 'GET',
+            headers: { 'x-auth-token': this.state.loginToken }
+          }
+        );
         const resJson = await res.json();
         this.setState({
           leagues: resJson
@@ -122,10 +131,13 @@ class ConfigProvider extends Component {
 
   loginUsingToken = async token => {
     try {
-      const response = await fetch('/api/auth', {
-        method: 'GET',
-        headers: { 'x-auth-token': token }
-      });
+      const response = await fetch(
+        'https://cors-anywhere.herokuapp.com/https://football-leagues-info.herokuapp.com/api/auth',
+        {
+          method: 'GET',
+          headers: { 'x-auth-token': token }
+        }
+      );
 
       const resJson = await response.json();
       if (!response.ok) throw new Error(resJson.errors);

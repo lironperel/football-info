@@ -15,7 +15,18 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-around'
   },
-  logoutDiv: { margin: '1%', color: 'white', fontSize: '1.2rem' }
+  logoutDiv: { margin: '1%', color: 'white', fontSize: '1.2rem' },
+  footer: {
+    marginTop: '5px',
+    fontSize: '1rem',
+    color: 'white',
+    position: 'relative',
+    bottom: '0',
+    left: '0',
+    right: '0',
+    width: '100%',
+    height: '20px'
+  }
 };
 
 export class LeaguesPage extends Component {
@@ -113,6 +124,11 @@ export class LeaguesPage extends Component {
               table={this.state.leagues[this.state.showLeaugeTable]}
             />
           </div>
+        )}
+        {Object.keys(this.state.leagues).length > 0 ? (
+          <div style={styles.footer}>© By Liron Perel</div>
+        ) : (
+          <></>
         )}
       </>
     );

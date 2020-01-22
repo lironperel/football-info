@@ -12,41 +12,43 @@ function App() {
   return (
     <ConfigProvider>
       <div className='App'>
-        <Consumer>
-          {context => (
-            <>
-              {context.isLoading ? (
-                <Container
-                  component='main'
-                  maxWidth='xs'
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    padding: '1%',
-                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                    marginTop: '15%'
-                  }}
-                >
-                  <CircularProgress />
-                  Loading...
-                </Container>
-              ) : (
-                <div>
-                  {context.userLoggedIn ? (
-                    <LeaguesPage
-                      getLeagues={context.getLeagues}
-                      currentUser={context.currentUser}
-                      logoutUser={context.logoutUser}
-                    />
-                  ) : (
-                    <LoginPage />
-                  )}
-                </div>
-              )}
-            </>
-          )}
-        </Consumer>
+        <div style={{ height: '90%' }}>
+          <Consumer>
+            {context => (
+              <>
+                {context.isLoading ? (
+                  <Container
+                    component='main'
+                    maxWidth='xs'
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      padding: '1%',
+                      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                      marginTop: '15%'
+                    }}
+                  >
+                    <CircularProgress />
+                    Loading...
+                  </Container>
+                ) : (
+                  <div>
+                    {context.userLoggedIn ? (
+                      <LeaguesPage
+                        getLeagues={context.getLeagues}
+                        currentUser={context.currentUser}
+                        logoutUser={context.logoutUser}
+                      />
+                    ) : (
+                      <LoginPage />
+                    )}
+                  </div>
+                )}
+              </>
+            )}
+          </Consumer>
+        </div>
       </div>
     </ConfigProvider>
   );

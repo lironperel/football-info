@@ -25,8 +25,8 @@ function Copyright() {
   return (
     <Typography variant='body2' color='textSecondary' align='center'>
       {'Copyright © '}
-      <Link color='inherit' href='/'>
-        Football-Info
+      <Link color='inherit' href='https://github.com/lironperel/'>
+        Liron-Perel
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
