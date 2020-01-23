@@ -34,6 +34,9 @@
 
 ## Client side
 - React.js with Material-UI
+- React Context API
+- Responsive UI + Mobile support
+
 ![](screen1.png)
 ![](screen2.png)
 ![](screen3.png)
