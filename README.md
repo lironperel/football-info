@@ -32,6 +32,12 @@
 	* Leagues
 		* GET api/leagues - returns all five leagues data
 
+## Client side
+- React.js with Material-UI
+![](screen1.png)
+![](screen2.png)
+![](screen3.png)
+![](screen4.png)
 
 ## Development setup
 
