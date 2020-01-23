@@ -23,7 +23,7 @@
 
 * Security/Authentication
 	* JWT token generated from server when logged in
-	* Endpoints in server are using JWT token for verification
+	* Endpoints in server are getting JWT in request header for validation
 	* Passwords are encrypted using bcrypt
 * API Routes
 	* Authentication
