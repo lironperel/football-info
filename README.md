@@ -62,4 +62,4 @@ Liron Perel – lironp90@gmail.com
 
 Distributed under the MIT license.
 
-[https://github.com/lironperel/football-info](https://github.com/dbader/)
+[https://github.com/lironperel/football-info](https://github.com/lironperel/football-info)
