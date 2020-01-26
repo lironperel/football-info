@@ -54,7 +54,8 @@ mongoURI = 'Your mongoDB connection string'
 API_TOKEN = 'Your https://www.football-data.org/ API token'
 jwtSecret = 'Any secret word you like for JWT tokens creation'
 ```
-4. Run `npm start`.
+4. Run `npm run server` on server folder (main)
+5. Run `npm start` on client folder
 
 ## Meta
 
