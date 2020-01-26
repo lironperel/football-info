@@ -16,6 +16,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 
 import Consumer from './ConfigProvider';
+import { CircularProgress } from '@material-ui/core';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant='filled' {...props} />;
@@ -52,6 +53,18 @@ const styles = theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2)
   },
+  wrapper: {
+    margin: theme.spacing(1),
+    position: 'relative'
+  },
+  buttonProgress: {
+    color: '#dddddd',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: -12,
+    marginLeft: -12
+  },
   registerContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -68,7 +81,8 @@ class LoginPage extends React.Component {
     password: '',
     fullname: '',
     rememberMe: true,
-    error: ''
+    error: '',
+    isLoading: false
   };
 
   toggleLoginRegister = () => {
@@ -92,6 +106,10 @@ class LoginPage extends React.Component {
 
   handleSubmit = (context, e) => {
     e.preventDefault();
+
+    this.setState({
+      isLoading: true
+    });
 
     // if user tries to login - handleLogin
     // if user tries to register - handleRegister
@@ -119,12 +137,14 @@ class LoginPage extends React.Component {
         }
         if (loginResult.status === 'ERR') {
           this.setState({
-            error: loginResult.content[0].msg
+            error: loginResult.content[0].msg,
+            isLoading: false
           });
         }
       } catch (error) {
         this.setState({
-          error: error.message
+          error: error.message,
+          isLoading: false
         });
       }
     }
@@ -143,12 +163,14 @@ class LoginPage extends React.Component {
         }
         if (loginResult.status === 'ERR') {
           this.setState({
-            error: loginResult.content[0].msg
+            error: loginResult.content[0].msg,
+            isLoading: false
           });
         }
       } catch (error) {
         this.setState({
-          error: error.message
+          error: error.message,
+          isLoading: false
         });
       }
     }
@@ -170,8 +192,8 @@ class LoginPage extends React.Component {
             maxWidth='xs'
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
           >
-            <CssBaseline />
             <div className={classes.paper}>
+              <CssBaseline />
               <Avatar className={classes.avatar}>
                 <LockOutlinedIcon />
               </Avatar>
@@ -235,16 +257,24 @@ class LoginPage extends React.Component {
                     onChange={this.handleChange}
                   />
                 )}
-                <Button
-                  type='submit'
-                  fullWidth
-                  variant='contained'
-                  color='primary'
-                  className={classes.submit}
-                >
-                  {this.state.loginOrRegister}
-                </Button>
-
+                <div className={classes.wrapper}>
+                  <Button
+                    type='submit'
+                    fullWidth
+                    variant='contained'
+                    color='primary'
+                    className={classes.submit}
+                    disabled={this.state.isLoading}
+                  >
+                    {this.state.loginOrRegister}
+                    {this.state.isLoading && (
+                      <CircularProgress
+                        size={24}
+                        className={classes.buttonProgress}
+                      />
+                    )}
+                  </Button>
+                </div>
                 <Grid container className={classes.registerContainer}>
                   <Grid item>
                     <Link
