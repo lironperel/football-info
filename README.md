@@ -47,14 +47,14 @@
 ## Development setup
 
 1. Clone
-2. Run npm install on main folder (server) and client folder.
+2. Run `npm install` on main folder (server) and client folder.
 3. Set server .env file:
 ```sh
 mongoURI = 'Your mongoDB connection string'
 API_TOKEN = 'Your https://www.football-data.org/ API token'
 jwtSecret = 'Any secret word you like for JWT tokens creation'
 ```
-
+4. Run `npm start`.
 
 ## Meta
 
