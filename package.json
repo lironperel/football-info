@@ -25,6 +25,9 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
-  }
+    "nodemon": "^2.0.2",
+    "minimist": "^1.2.5"
+  },
+  "resolutions": { "minimist": "^1.2.5" },
+  "preinstall": "npx npm-force-resolutions"
 }
